@@ -1,6 +1,7 @@
 import requests
 import socket
 import os
+from config import cf_email, cf_key, zone_name, domain, ipv6
 
 
 def get_ip(ip_type):
@@ -38,12 +39,6 @@ def set_ip(ip, ip_type):
 
 
 if __name__ == "__main__":
-    cf_email = os.environ.get("CF_EMAIL", "example@example.com")
-    cf_key = os.environ.get("CF_KEY", "")
-    zone_name = os.environ.get("CF_ZONENAME", "example.com")
-    domain = os.environ.get("CF_DOMAIN", "www.example.com")
-    ipv6 = os.environ.get("CF_ENABLE_IPV6", "No")
-
     auth_headers = {
         "X-Auth-Email": cf_email,
         "X-Auth-Key": cf_key,
