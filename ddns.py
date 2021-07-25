@@ -1,6 +1,5 @@
 import requests
 import socket
-import os
 from config import cf_email, cf_key, zone_name, domain, ipv6
 
 
