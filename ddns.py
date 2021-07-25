@@ -55,5 +55,5 @@ if __name__ == "__main__":
     except TypeError:
         exit("Auth error")
     set_ip(get_ip("A"), "A")
-    if ipv6.lower() == "yes" or ipv6.lower() == "y":
+    if ipv6:
         set_ip(get_ip("AAAA"), "AAAA")
