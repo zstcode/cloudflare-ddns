@@ -13,12 +13,15 @@ Update `A` and `AAAA` record for domains in Cloudflare.
 pip install requests 
 ```
 
+### Set up API Token
+
+Set up an API token in Cloudflare for editing DNS records of the domain.
+
 ### Configuration
 
 Modify `config.py` and input your infomation.
 
-- cf_email: Account email in Cloudflare
-- cf_key: Cloudflare API key
+- cf_api_token: Cloudflare API Token for DNS editing
 - zone_name: Zone Name in Cloudflare
 - domain: domain for DDNS
 - ipv6: Set to `True` to update AAAA record
