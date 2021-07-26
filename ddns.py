@@ -1,6 +1,6 @@
 import requests
 import socket
-from config import cf_email, cf_key, zone_name, domain, ipv6
+from config import cf_api_token, zone_name, domain, ipv6
 
 
 def get_ip(ip_type):
@@ -39,16 +39,16 @@ def set_ip(ip, ip_type):
 
 if __name__ == "__main__":
     auth_headers = {
-        "X-Auth-Email": cf_email,
-        "X-Auth-Key": cf_key,
+        "Authorization": f"Bearer {cf_api_token}",
         "Content-Type": "application/json",
     }
     url_get_zone_id = f"https://api.cloudflare.com/client/v4/zones?name={zone_name}"
 
     try:
-        zone_id = requests.get(url_get_zone_id, headers=auth_headers).json()["result"][
-            0
-        ]["id"]
+        zone_id = requests.get(
+            url_get_zone_id,
+            headers=auth_headers
+        ).json()["result"][0]["id"]
     except IndexError:
         exit("No zones found")
     except TypeError:
